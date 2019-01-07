@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "815238332968",
+    "firebase_url": "https://sprint-3-d98bc.firebaseio.com",
+    "project_id": "sprint-3-d98bc",
+    "storage_bucket": "sprint-3-d98bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815238332968:android:28c3b9501e47a983",
+        "android_client_info": {
+          "package_name": "com.manuflowers.notificationsfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815238332968-j82vssatlg20kqt3m8ueac3mom8pqski.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtZjH9FgFyjF85tx2zA7ta3x8LKrh8xvI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
