@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/llnotificationdialog"
+              android:layout_width="300dp"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:padding="15dp"
+              android:visibility="visible">
+
+    <TextView
+            android:id="@+id/tvTitleModal"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:gravity="center"
+            tools:text="Titulo del modal" />
+
+    <TextView
+            android:id="@+id/tvDescriptionModal"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:visibility="gone" />
+
+    <ImageView
+            android:id="@+id/imgModal"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            tools:src="@drawable/ic_neoauto" />
+
+    <Button
+            android:id="@+id/btnLinkModal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="@dimen/fab_margin"
+            android:background="@drawable/orange_square_button"
+            android:text="@string/view_more"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            android:visibility="gone" />
+</LinearLayout>
