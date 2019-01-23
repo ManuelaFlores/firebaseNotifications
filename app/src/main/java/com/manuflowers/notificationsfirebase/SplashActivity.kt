@@ -2,7 +2,9 @@ package com.manuflowers.notificationsfirebase
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var mainIntent: Intent
@@ -11,49 +13,27 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
       //  setContentView(R.layout.activity_splash)
 
-        //Prepare data from background notification
-        prepareDataFromNotification()
-        goToMainActivity()
-    }
-
-    private fun prepareDataFromNotification() {
+        val gson = Gson()
 
         val intent = intent
+        if (intent?.extras != null && intent.hasExtra("title")) {
+            Log.e("M- title", intent.getStringExtra("title")!!.trim())
+        }
 
-        mainIntent = Intent(this, MainActivity::class.java)
+        if (intent.extras != null) {
+            Log.e("M-intent","${intent.hasExtra("title")}")
 
-        if (intent != null && intent.extras != null && intent.hasExtra("title")) {
+            //intent.getStringExtra("title").trim()
+            for ( i in intent?.extras!!.keySet()) {
 
-            mainIntent.putExtra("modal", true)
+                val value = intent?.extras!!.getString(i)
+                Log.e("M-","$i: $value")
+            //    Log.e("M- que es i ","$i ")
+              //  Log.e("M-value","${value to String()}")
 
-            if (!intent.getStringExtra("title").trim { it <= ' ' }.isEmpty()) {
-                mainIntent.putExtra(
-                    "title",
-                    intent.getStringExtra("title")
-                )
-            }
-
-            if (intent.hasExtra("description") && !intent.getStringExtra("description").trim { it <= ' ' }.isEmpty()) {
-                mainIntent.putExtra(
-                    "description",
-                    intent.getStringExtra("description")
-                )
-            }
-
-            if (intent.hasExtra("image") && !intent.getStringExtra("image").trim { it <= ' ' }.isEmpty()) {
-                mainIntent.putExtra(
-                    "image",
-                    intent.getStringExtra("image")
-                )
-            }
-
-            if (intent.hasExtra("link") && !intent.getStringExtra("link").trim { it <= ' ' }.isEmpty()) {
-                mainIntent.putExtra(
-                    "link",
-                    intent.getStringExtra("link")
-                )
             }
         }
+
     }
 
     private fun goToMainActivity(){

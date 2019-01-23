@@ -2,12 +2,13 @@ package com.manuflowers.notificationsfirebase
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.manuflowers.notificationsfirebase.utils.TAG_CONTACT_DIALOG
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,9 +16,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initModalNotification()
+       // initModalNotification()
 
-        FirebaseInstanceId.getInstance().instanceId
+
+        if (intent.extras != null) {
+            Log.e("M- estas entrnado", "rrwgregr")
+            for ( i in intent?.extras!!.keySet()) {
+
+                val value = intent?.extras!!.getString(i)
+                infoTextView.text = ("\n$i: $value")
+                Log.d("M- info", "T ------:$i: $value")
+            }
+        }
+
+        val token = FirebaseInstanceId.getInstance().getToken()
+
+        Log.d("M- token", "Token: $token")
+    }
+
+     /*   FirebaseInstanceId.getInstance().instanceId
             .addOnCompleteListener(OnCompleteListener { task ->
                 if (!task.isSuccessful) {
                 //    Log.w(FragmentActivity.TAG, "getInstanceId failed", task.exception)
@@ -36,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             })
         // [END retrieve_current_token]
     }
+    */
 
 
 
